@@ -35,7 +35,7 @@
         <url>git@github.com:nacos-group/nacos-sync.git</url>
         <connection>scm:git@github.com:nacos-group/nacos-sync.git</connection>
         <developerConnection>scm:git@github.com:nacos-group/nacos-sync.git</developerConnection>
-        <tag>nacossync-0.4.6</tag>
+        <tag>nacossync-0.4.7</tag>
     </scm>
     <developers>
         <developer>
@@ -62,12 +62,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <scope>provided</scope>
                 <version>1.18.2</version>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
