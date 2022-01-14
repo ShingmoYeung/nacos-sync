@@ -13,7 +13,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.alibaba.nacossync</groupId>
     <artifactId>nacossync-parent</artifactId>
     <version>0.4.7</version>
@@ -24,19 +23,28 @@
         <module>nacossync-distribution</module>
     </modules>
     <packaging>pom</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot.version>2.4.5</spring.boot.version>
+        <cloud.version>2020.0.2</cloud.version>
+        <zookeeper.version>3.4.9</zookeeper.version>
+        <curator.version>4.1.0</curator.version>
+        <mockito.version>1.10.19</mockito.version>
+        <nacos.client.verison>1.4.2</nacos.client.verison>
+        <wildfly.common.version>1.5.2.Final</wildfly.common.version>
+        <nacossync-worker.version>${parent.version}</nacossync-worker.version>
     </properties>
 
     <scm>
         <url>git@github.com:nacos-group/nacos-sync.git</url>
         <connection>scm:git@github.com:nacos-group/nacos-sync.git</connection>
         <developerConnection>scm:git@github.com:nacos-group/nacos-sync.git</developerConnection>
-        <tag>nacossync-0.4.6</tag>
+        <tag>nacossync-0.4.7</tag>
     </scm>
+
     <developers>
         <developer>
             <id>Alibaba Nacos</id>
@@ -45,6 +53,7 @@
             <email>nacos_dev@linux.alibaba.com</email>
         </developer>
     </developers>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -63,10 +72,94 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <scope>provided</scope>
-                <version>1.18.2</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--nacos-->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos.client.verison}</version>
+            </dependency>
+            <!--zookeeper-->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.servo</groupId>
+                <artifactId>servo-core</artifactId>
+                <version>0.12.21</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.common</groupId>
+                <artifactId>wildfly-common</artifactId>
+                <version>${wildfly.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient</artifactId>
+                <version>0.9.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.12.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>29.0-jre</version>
+            </dependency>
+            <!-- swagger2 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ning</groupId>
+                <artifactId>async-http-client</artifactId>
+                <version>1.7.17</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty</artifactId>
+                <version>3.10.5.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -229,6 +322,7 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <reporting>
         <plugins>
             <plugin>
