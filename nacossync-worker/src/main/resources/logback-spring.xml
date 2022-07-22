@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
     <configuration scan="true" scanPeriod="10 seconds">
-        <springProperty name="logPath"  scope="context" source="nacosSync.logs.path" defaultValue="${nacosSync.home}/logs"/>
+        <springProperty name="logPath"  scope="context" source="logging.file.path" defaultValue="logs"/>
         <property name="LOG_HOME" value="${logPath}" />
     <appender name="FILEINFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/nacosSync.log</file>
@@ -36,5 +36,4 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILEINFO"/>
     </root>
-
 </configuration>

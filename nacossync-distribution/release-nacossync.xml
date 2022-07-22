@@ -28,7 +28,7 @@
             <directory>../nacossync-worker/src/main/resources</directory>
             <outputDirectory>conf</outputDirectory>
             <includes>
-                <include>application.properties</include>
+                <include>bootstrap.properties</include>
                 <include>logback-spring.xml</include>
             </includes>
         </fileSet>
@@ -60,9 +60,9 @@
             <destName>NOTICE</destName>
         </file>
         <file>
-            <source>../nacossync-worker/target/nacosSync-server.${parent.version}.jar</source>
+            <source>../nacossync-worker/target/nacos-sync-server-${parent.version}.jar</source>
             <outputDirectory></outputDirectory>
-            <destName>nacosSync-server.jar</destName>
+            <destName>nacos-sync-server.jar</destName>
         </file>
     </files>
 </assembly>

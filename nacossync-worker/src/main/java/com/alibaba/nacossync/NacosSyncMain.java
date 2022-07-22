@@ -18,7 +18,6 @@ package com.alibaba.nacossync;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -29,9 +28,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @SpringBootApplication(exclude = EurekaClientAutoConfiguration.class)
 public class NacosSyncMain {
-
     public static void main(String[] args) {
-
         SpringApplication.run(NacosSyncMain.class, args);
     }
 }

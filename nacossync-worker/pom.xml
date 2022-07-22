@@ -30,6 +30,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
@@ -52,6 +56,11 @@
         <dependency>
             <groupId>org.wildfly.common</groupId>
             <artifactId>wildfly-common</artifactId>
+        </dependency>
+        <!-- Alibaba Nacos Config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
         <!-- eureka -->
         <dependency>
@@ -82,10 +91,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!--nacos-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
-        </dependency>
+        </dependency>-->
         <!--zookeeper-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
@@ -137,7 +146,7 @@
     </dependencies>
 
     <build>
-        <finalName>nacosSync-server.${parent.version}</finalName>
+        <finalName>nacos-sync-server-${parent.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

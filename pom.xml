@@ -30,6 +30,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot.version>2.4.5</spring.boot.version>
         <cloud.version>2020.0.2</cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <zookeeper.version>3.4.9</zookeeper.version>
         <curator.version>4.1.0</curator.version>
         <mockito.version>1.10.19</mockito.version>
@@ -75,6 +76,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringCloud Alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
