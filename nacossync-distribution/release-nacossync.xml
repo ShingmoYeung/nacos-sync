@@ -28,7 +28,7 @@
             <directory>../nacossync-worker/src/main/resources</directory>
             <outputDirectory>conf</outputDirectory>
             <includes>
-                <include>application.properties</include>
+                <include>bootstrap.properties</include>
                 <include>logback-spring.xml</include>
             </includes>
         </fileSet>

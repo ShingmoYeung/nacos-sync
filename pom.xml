@@ -17,17 +17,20 @@
     <groupId>com.alibaba.nacossync</groupId>
     <artifactId>nacossync-parent</artifactId>
     <version>${revision}</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>nacossync-console</module>
         <module>nacossync-worker</module>
         <module>nacossync-test</module>
         <module>nacossync-distribution</module>
     </modules>
-    <packaging>pom</packaging>
+
     <properties>
         <revision>0.4.8</revision>
         <spring-boot.version>2.5.14</spring-boot.version>
         <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <zookeeper.version>3.4.9</zookeeper.version>
         <curator.version>4.1.0</curator.version>
@@ -56,7 +59,8 @@
         <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
         <dependency-mediator-maven-plugin.version>1.0.2</dependency-mediator-maven-plugin.version>
         <extra-enforcer-rules.version>1.0-beta-4</extra-enforcer-rules.version>
-        <async-http-client.version>1.7.17</async-http-client.version>
+        <async-http-client.version>2.12.3</async-http-client.version>
+        <servo-core.version>0.12.21</servo-core.version>
     </properties>
 
     <scm>
@@ -94,6 +98,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringCloud Alibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -174,9 +186,20 @@
                 <version>${guava.verison}</version>
             </dependency>
             <dependency>
-                <groupId>com.ning</groupId>
+                <groupId>org.asynchttpclient</groupId>
                 <artifactId>async-http-client</artifactId>
                 <version>${async-http-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.servo</groupId>
+                <artifactId>servo-core</artifactId>
+                <version>${servo-core.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>*</artifactId>
+                        <groupId>org.glassfish.jersey</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -355,6 +378,7 @@
                 </executions>
             </plugin>
         </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -380,6 +404,7 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <reporting>
         <plugins>
             <plugin>
